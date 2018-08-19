@@ -53,7 +53,8 @@ class PrePostDF:
             filename += '.csv'
 
         df = pd.read_csv(filename)
-        if 'Choose intervention ' in df.columns:
+        df.columns = df.columns.str.strip()
+        if 'Choose intervention' in df.columns:
             return self.import_reporter(df)
         else:
             raise ValueError("Data exporter not recognized for {}. Columns: {}".format(filename, df.columns))
@@ -65,7 +66,7 @@ class PrePostDF:
         df['dt'] = pd.to_datetime(df[dt_col])
         df = df.set_index('dt')
         df = df.rename(
-            columns={'Choose intervention ': 'intervention', 'How does your stomach feel?': 'outcome'})
+            columns={'Choose intervention': 'intervention', 'How does your stomach feel?': 'outcome'})
         df['outcome'] = df['outcome'].apply(lambda x: x.strip() if pd.notnull(x) else '')
         return df[['intervention', 'outcome']]
 
