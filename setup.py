@@ -2,14 +2,11 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup
+import pypandoc
 
 __version__ = '0.0.1'
 
-try:
-    import pypandoc
-    long_description = pypandoc.convert('README.md', 'rst')
-except(IOError, ImportError):
-    long_description = open('README.md').read()
+long_description = pypandoc.convert_file('README.md', 'rst')
 
 required = [
     'ipython==6.5.0',
@@ -17,6 +14,7 @@ required = [
     'pandas==0.23.3',
     'pytest==3.7.1',
     'scipy==1.1.0',
+    'pypandoc==1.4.0',
 ]
 
 kwargs = {
@@ -28,7 +26,7 @@ kwargs = {
     "author": "Matthew Ritter",
     "maintainer": "Matthew Ritter",
     "license": "MIT",
-    "url": "https://github.com/mritter/preposterous",
+    "url": "https://github.com/matthewwritter/preposterous",
     "keywords": "quantified_self statistics",
     "classifiers": [
         "Programming Language :: Python",
