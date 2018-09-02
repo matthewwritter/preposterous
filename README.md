@@ -5,13 +5,13 @@ Estimate the impact of an intervention, with simplicity and humility
 The largest restriction is that it only imports data from the [Reporter app](http://www.reporter-app.com/), 
 which is my current default recommendation for anyone who is trying to track something for Quantified Self.
 
-##Installation
+## Installation
 
 You can install with `pip install preposterous`
 
 If you want to install from source, then clone this repository and run `pip install -e .` from the project root.
 
-##Testing
+## Testing
 
 Tests can be seen in the `tests/` directory and run with `pytest`
 
